@@ -53,7 +53,7 @@ export default function Register() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8000/register', formData);
+      const response = await axios.post('https://productinventory.vercel.app/register', formData);
       const data = response.data;
       console.log(response)
       if (data.success) {

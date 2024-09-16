@@ -13,7 +13,7 @@ export default function ProductTable() {
     async function fetchProducts() {
       try {
         const token = Cookies.get('token'); 
-        const response = await axios.get('http://localhost:8000/getProduct', {
+        const response = await axios.get('https://productinventory.vercel.app/getProduct', {
           headers: {
             Authorization: `Bearer ${token}`, // Pass the token as a Bearer token
           },
@@ -41,7 +41,7 @@ export default function ProductTable() {
     try {
       const token = Cookies.get('token');
 
-      const response = await axios.post('http://localhost:8000/addProduct', product, {
+      const response = await axios.post('https://productinventory.vercel.app/addProduct', product, {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
@@ -74,7 +74,7 @@ export default function ProductTable() {
         };
     
         // Send PATCH request with headers
-        await axios.patch(`http://localhost:8000/updateProduct?id=${_id}`, productData, config);
+        await axios.patch(`https://productinventory.vercel.app/updateProduct?id=${_id}`, productData, config);
     
         setProducts((prevProducts) =>
           prevProducts.map((item) =>
@@ -91,7 +91,7 @@ export default function ProductTable() {
       try {
         const token = Cookies.get('token'); // Assuming token is stored in cookies
     
-        const response = await axios.delete(`http://localhost:8000/deleteProduct`, {
+        const response = await axios.delete(`https://productinventory.vercel.app/deleteProduct`, {
           params: { id: productId },
           headers: {
             Authorization: `Bearer ${token}`, // Pass token in the Authorization header

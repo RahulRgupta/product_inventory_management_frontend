@@ -55,7 +55,7 @@ export default function Login() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8000/login', formData);
+      const response = await axios.post('https://productinventory.vercel.app/login', formData);
       const { token } = response.data;
       if (token) {
         // Store the token in a cookie
